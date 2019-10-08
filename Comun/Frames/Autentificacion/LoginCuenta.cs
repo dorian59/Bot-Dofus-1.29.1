@@ -6,13 +6,7 @@ using Bot_Dofus_1._29._1.Otros.Game.Servidor;
 using Bot_Dofus_1._29._1.Utilidades.Criptografia;
 using System.Threading.Tasks;
 
-/*
-    Este archivo es parte del proyecto BotDofus_1.29.1
 
-    BotDofus_1.29.1 Copyright (C) 2019 Alvaro Prendes — Todos los derechos reservados.
-    Creado por Alvaro Prendes
-    web: http://www.salesprendes.com
-*/
 
 namespace Bot_Dofus_1._29._1.Comun.Frames.LoginCuenta
 {
@@ -35,7 +29,7 @@ namespace Bot_Dofus_1._29._1.Comun.Frames.LoginCuenta
         public void get_Apodo(ClienteTcp cliente, string paquete) => cliente.cuenta.apodo = paquete.Substring(2);
 
         [PaqueteAtributo("Af")]
-        public void get_Fila_Espera_Login(ClienteTcp cliente, string paquete) => cliente.cuenta.logger.log_informacion("FILA DE ESPERA", "Posición " + paquete[2] + "/" + paquete[4]);
+        public void get_Fila_Espera_Login(ClienteTcp cliente, string paquete) => cliente.cuenta.logger.log_informacion("File d'attente", "Position " + paquete[2] + "/" + paquete[4]);
 
         [PaqueteAtributo("AH")]
         public void get_Servidor_Estado(ClienteTcp cliente, string paquete)
@@ -56,7 +50,7 @@ namespace Bot_Dofus_1._29._1.Comun.Frames.LoginCuenta
                 if (id == cuenta.configuracion.get_Servidor_Id())
                 {
                     servidor.actualizar_Datos(id, nombre, estado);
-                    cuenta.logger.log_informacion("LOGIN", $"El servidor {nombre} esta {estado}");
+                    cuenta.logger.log_informacion("LOGIN", $"Le serveur {nombre} est {estado}");
 
                     if (estado != EstadosServidor.CONECTADO)
                         primera_vez = false;
